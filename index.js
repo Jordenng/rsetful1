@@ -10,13 +10,24 @@ app.set('view engine','ejs')
 const comments = [
     {
     username:'rodd',
-    comment:'lol funny'},{
+    comment:'lol funny'},
+    {
     username:'skyler',
     comment:'loly funny'
 }]
 
 app.get('/comments',(req,res)=>{
     res.render('comments/index',{comments})
+})
+
+app.get('/comments/new',(req,res)=>{
+    res.render('comments/new')
+})
+
+app.post('/comments',(req,res)=>{
+    const {username, comment} = req.body;
+    comments.push({username: comment})
+    res.send("it worked")
 })
 
 app.get('/tacos', (req,res)=>{
