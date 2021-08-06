@@ -13,7 +13,7 @@ const comments = [
     comment:'lol funny'},
     {
     username:'skyler',
-    comment:'loly funny'
+    comment:'lolz funny'
 }]
 
 app.get('/comments',(req,res)=>{
@@ -26,8 +26,8 @@ app.get('/comments/new',(req,res)=>{
 
 app.post('/comments',(req,res)=>{
     const {username, comment} = req.body;
-    comments.push({username: comment})
-    res.send("it worked")
+    comments.push({ username, comment })
+    res.redirect('/comments')
 })
 
 app.get('/tacos', (req,res)=>{
